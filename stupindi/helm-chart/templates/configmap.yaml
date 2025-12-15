@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.app.name }}-config
+data:
+  app-name: {{ .Values.config.appName | quote }}
+  environment: {{ .Values.config.environment | quote }}
+  welcome-message: {{ .Values.config.welcomeMessage | quote }}
+  app-config.yaml: |
+    app:
+      name: {{ .Values.config.appName }}
+      environment: {{ .Values.config.environment }}
+    server:
+      port: {{ .Values.app.port }}

@@ -1,0 +1,28 @@
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Kubernetes
+kubeconfig
+*.kubeconfig
+
+# Helm
+**/charts/
+*.tgz
+
+# Local
+.env
+.secrets/
+tmp/
+
+# Sensitive data
+*.secret.yaml
+password*
+secret*
+credentials*

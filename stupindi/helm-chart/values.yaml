@@ -1,0 +1,47 @@
+# Application settings
+app:
+  name: "my-python-app"
+  port: 5000
+
+# Image settings 
+image:
+  repository: "nginxdemos/hello"  # Публичный образ nginx с hello страницей
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+# Replica settings
+replicaCount: 2
+
+# Resource limits 
+resources:
+  requests:
+    memory: "64Mi"
+    cpu: "50m"
+  limits:
+    memory: "128Mi"
+    cpu: "100m"
+
+# Service settings
+service:
+  type: NodePort
+  port: 80
+  targetPort: 80  # nginx работает на 80 порту
+  nodePort: 30080
+
+# ConfigMap settings
+config:
+  appName: "myapp"
+  environment: "production"
+  welcomeMessage: "Hello from GitOps with ArgoCD!"
+
+# Health checks
+probes:
+  enabled: true
+  liveness:
+    path: "/"
+    initialDelaySeconds: 30
+    periodSeconds: 10
+  readiness:
+    path: "/"
+    initialDelaySeconds: 5
+    periodSeconds: 10
