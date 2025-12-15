@@ -3,19 +3,15 @@ kind: Application
 metadata:
   name: my-python-app
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   
   source:
     repoURL: https://github.com/Stupin87/sre-gitops-assignment.git
     targetRevision: HEAD
-    path: stupindi/helm-chart
+    path: stupindi/helm-chart  # ← ВАЖНО: stupindi, а не stupidi!
     helm:
-      valueFiles:c
+      valueFiles:
         - values.yaml
   
   destination:
@@ -26,20 +22,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
-      allowEmpty: false
     syncOptions:
       - CreateNamespace=true
-      - PruneLast=true
-      - ApplyOutOfSyncOnly=true
-    retry:
-      limit: 5
-      backoff:
-        duration: 5s
-        factor: 2
-        maxDuration: 3m
-  
-  ignoreDifferences:
-    - group: apps
-      kind: Deployment
-      jsonPointers:
-        - /spec/replicas
