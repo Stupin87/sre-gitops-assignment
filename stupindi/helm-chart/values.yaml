@@ -10,7 +10,7 @@ image:
   pullPolicy: IfNotPresent
 
 # Replica settings
-replicaCount: 2
+replicaCount: 3
 
 # Resource limits 
 resources:
