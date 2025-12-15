@@ -13,9 +13,9 @@ spec:
   source:
     repoURL: https://github.com/Stupin87/sre-gitops-assignment.git
     targetRevision: HEAD
-    path: Ivanov_II/helm-chart
+    path: stupindi/helm-chart
     helm:
-      valueFiles:
+      valueFiles:c
         - values.yaml
   
   destination:
