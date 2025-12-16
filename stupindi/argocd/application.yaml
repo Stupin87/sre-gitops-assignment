@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/Stupin87/sre-gitops-assignment.git
     targetRevision: HEAD
-    path: stupindi/helm-chart  # ← ВАЖНО: stupindi, а не stupidi!
+    path: stupindi/helm-chart  
     helm:
       valueFiles:
         - values.yaml
